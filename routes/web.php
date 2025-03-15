@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/about",function () {
-    return view('about');
-});
+Route::get('/about', [PostController::class, 'index']);
+
