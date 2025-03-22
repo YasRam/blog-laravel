@@ -81,6 +81,11 @@
 
             <span class="text-gray-400 font-bold">BLOG</span>
             <li class="mb-1 group">
+                
+                <x-nav-link href="/users" :active="request()->is( 'users')">
+                    <i class='bx bx-user mr-3 text-lg'></i>
+                    <span class="text-sm">Users</span>
+                </x-nav-link>
                 <a href=""
                     class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <i class='bx bxl-blogger mr-3 text-lg'></i>

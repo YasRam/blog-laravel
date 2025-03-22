@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/about', [PostController::class, 'index']);
+Route::get('/about/edit', [PostController::class, 'index']);
 
