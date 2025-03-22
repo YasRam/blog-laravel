@@ -16,7 +16,11 @@ return new class extends Migration
             $table->string('title',100);
             $table->text('content',100);
             $table->string('img',100)->nullable();
-
+            $table->bigInteger("category_id")->nullable()->unsigned();
+            $table->bigInteger("user_id")->nullable()->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

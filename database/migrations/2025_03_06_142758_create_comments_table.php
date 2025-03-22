@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('title',100);
             $table->text('content',100);
             $table->string('img',100)->nullable();
-            
+            $table->bigInteger("post_id")->nullable()->unsigned();
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->timestamps();
         });
     }
