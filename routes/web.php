@@ -19,9 +19,9 @@ Route::get('/', function () {
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::get('/posts/show/{id}', [PostController::class, 'show'])->name('post');
-Route::get('/post/create/{id}', [PostController::class, 'index']);
-Route::get('/post/edit/{id}', [PostController::class, 'index']);
-Route::get('/post/delete/{id}', [PostController::class, 'index']);
+Route::get('/post/create/{id}', [PostController::class, 'index'])->name('newpost');
+Route::get('/post/edit/{id}', [PostController::class, 'index'])->name('editpost');
+Route::get('/post/delete/{id}', [PostController::class, 'index'])->name('deletepost');
 
 Route::get('/category', [PostController::class, 'index']);
 Route::get('/category/create', [PostController::class, 'index']);

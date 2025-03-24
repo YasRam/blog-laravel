@@ -11,11 +11,13 @@ class PostController extends Controller
 {
     public function index() {
         $posts= Post::paginate(3);
-        return view('pages/posts-all',compact('posts'));
+        return view('pages.posts-all',compact('posts'));
     }
 
     public function show($id)  {
-        $post = Post::where("id", $id);
+        $post = Post::findorfail($id);
+        //  where("id",$id)->get();
+        // dd($post);
         return view('pages.post', compact('post'));
     }
 

@@ -24,7 +24,7 @@
     <!--sidenav -->
     <div class="fixed left-0 top-0 w-64 h-full bg-[#f8f4f3] p-4 z-50 sidebar-menu transition-transform">
 
-        <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
+        <a href="/" class="flex items-center pb-4 border-b border-b-gray-800">
 
             <h2 class="font-bold text-2xl">LOREM <span class="bg-[#f84525] text-white px-2 rounded-md">IPSUM</span></h2>
         </a>
@@ -49,31 +49,20 @@
             <span class="text-gray-400 font-bold">ADMIN</span>
 
             <li class="mb-1 group">
-                <x-nav-link href="/Users" :active="request()->is('Users')">
+                <x-nav-link href="/users" :active="request()->is('users')">
                     <i class='bx bx-user mr-3 text-lg'></i>
                     <span class="text-sm">Users</span>
                     <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
                 </x-nav-link>
-                <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href=""
-                            class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All</a>
-                    </li>
-
-                    <li class="mb-4">
-                        <a href=""
-                            class="text-gray-900 text-sm flex items-center hover:text-[#f84525] before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Roles</a>
-                    </li>
-                </ul>
             </li>
             <li class="mb-1 group">
-                <x-nav-link href="/Category" :active="request()->is('Category')">
+                <x-nav-link href="/category" :active="request()->is('category')">
                     <i class='bx bx-user mr-3 text-lg'></i>
                     <span class="text-sm">Category</span>
                 </x-nav-link>
             </li>
             <li class="mb-1 group">
-                <x-nav-link href="/Posts" :active="request()->is('Posts')">
+                <x-nav-link href="/posts" :active="request()->is('posts')">
                     <i class='bx bx-user mr-3 text-lg'></i>
                     <span class="text-sm">Posts</span>
                 </x-nav-link>
