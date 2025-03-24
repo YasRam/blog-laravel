@@ -10,12 +10,28 @@ use App\Models\Category;
 class PostController extends Controller
 {
     public function index() {
-        $posts= Post::all();
-        // dd($posts);
-        $categories = Category::all();
-        // return view('about',compact('posts'));
-        return view('about',compact('categories'));
+        $posts= Post::paginate(3);
+        return view('pages/posts-all',compact('posts'));
     }
 
+    public function show($id)  {
+        $post = Post::where("id", $id);
+        return view('pages.post', compact('post'));
+    }
+
+    public function create()  {
+        
+        
+    }
+
+    public function update()  {
+        
+        
+    }
+
+    public function delete()  {
+        
+        
+    }
 
 }

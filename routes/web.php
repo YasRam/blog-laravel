@@ -17,10 +17,11 @@ Route::get('/', function () {
     return view('app');
 });
 
-Route::get('/post', [PostController::class, 'index']);
-Route::get('/post/create', [PostController::class, 'index']);
-Route::get('/post/edit', [PostController::class, 'index']);
-Route::get('/post/delete', [PostController::class, 'index']);
+Route::get('/posts', [PostController::class, 'index'])->name('posts');
+Route::get('/posts/show/{id}', [PostController::class, 'show'])->name('post');
+Route::get('/post/create/{id}', [PostController::class, 'index']);
+Route::get('/post/edit/{id}', [PostController::class, 'index']);
+Route::get('/post/delete/{id}', [PostController::class, 'index']);
 
 Route::get('/category', [PostController::class, 'index']);
 Route::get('/category/create', [PostController::class, 'index']);
