@@ -14,14 +14,20 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {
-    return view('app');
+    return view('pages.app');
 });
 
-Route::get('/posts', [PostController::class, 'index'])->name('posts');
-Route::get('/posts/show/{id}', [PostController::class, 'show'])->name('post');
-Route::get('/post/create/{id}', [PostController::class, 'index'])->name('newpost');
-Route::get('/post/edit/{id}', [PostController::class, 'index'])->name('editpost');
-Route::get('/post/delete/{id}', [PostController::class, 'index'])->name('deletepost');
+Route::get('/posts', [PostController::class, 'index'])->name('post.index');
+Route::get('/posts/show/{id}', [PostController::class, 'show'])->name('post.show');
+
+Route::get('/post/add', [PostController::class, 'add'])->name( 'post.add');
+Route::post('/post/store', [PostController::class, 'store'])->name('post.store');
+
+Route::get('/post/edit/{id}', [PostController::class, 'edit'])->name('post.edit');
+Route::post('/post/update/{id}', [PostController::class, 'update'])->name('post.update');
+
+Route::get('/post/delete/{id}', [PostController::class, 'delete'])->name('post.delete');
+
 
 Route::get('/category', [PostController::class, 'index']);
 Route::get('/category/create', [PostController::class, 'index']);
