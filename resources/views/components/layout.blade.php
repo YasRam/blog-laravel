@@ -50,7 +50,7 @@
             <span class="text-gray-400 font-bold">ADMIN</span>
 
             <li class="mb-1 group">
-                <x-nav-link href="/users" :active="request()->is('users')">
+                <x-nav-link href="/user" :active="request()->is('user')">
                     <i class='bx bx-user mr-3 text-lg'></i>
                     <span class="text-sm">Users</span>
                     <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
