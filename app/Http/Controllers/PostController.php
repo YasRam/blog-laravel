@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(3);
+        $posts = Post::paginate(10);
         return view('post.all', compact('posts'));
     }
 
@@ -35,15 +35,26 @@ class PostController extends Controller
             [
                 'title' => 'required | string | min:2 | max:10',
                 'content' => 'required | string | min:2 | max:100',
-                'img' => '',
+                'img' => 'nullable | image | mimes:jpg,jpeg,png',
                 'category' => '',
             ]
         );
 
+        $imgName = null;
+
+        if ($request->hasFile('img')) {
+            $img = $request->file('img');
+            $extention = $img->getClientOriginalExtension();
+            $imgName = uniqid() . "." . $extention;
+            $img->move(public_path('upload/posts'), $imgName);
+        }
+        // dd($newImgName);
+
+
         Post::create([
             'title' => $request->title,
             'content' => $request->content,
-            'img' => $request->img,
+            'img' => $imgName,
             'category_id' => $request->category,
         ]);
 
@@ -69,19 +80,39 @@ class PostController extends Controller
                 'category' => '',
             ]
         );
+
         $post = Post::find($id);
-        $post -> update([
+
+        $imgName = $post->img;
+
+        if ($request->hasFile('img')) {
+            if ($imgName !== null)
+                unlink(public_path('upload/posts/' . $imgName));
+            $img = $request->file('img');
+            $extention = $img->getClientOriginalExtension();
+            $imgName = uniqid() . "." . $extention;
+            $img->move(public_path('upload/posts'), $imgName);
+        }
+
+        $post->update([
             'title' => $request->title,
             'content' => $request->content,
-            'img' => $request->img,
+            'img' => $imgName,
             'category_id' => $request->category,
         ]);
         return redirect()->route('post.index');
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         $post = Post::find($id);
-        $post -> delete();
+
+        $imgName = $post->img;
+
+        if ($imgName !== null)
+            unlink(public_path('upload/posts/' . $imgName));
+
+        $post->delete();
         return redirect()->route('post.index');
         // return view('post.all');
     }

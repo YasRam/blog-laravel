@@ -40,7 +40,7 @@
                                 }}</a>
                         </td>
                         <td class="px-6 py-4">
-                            {{ $post->category_id}}
+                            {{ $post->Category}}
                         </td>
                         <td class="px-6 py-4">
                             {{ $post->content }}

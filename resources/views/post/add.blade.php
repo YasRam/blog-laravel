@@ -3,21 +3,21 @@
     @section('content')
     <div class="p-6 container">
 
-        {{-- @if ($errors->get('title'))
+        @if ($errors->get('title'))
 
-        @dd($errors->get('title'))
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{$error}}</li>
-            @endforeach
-        </ul>
-        @endif --}}
-
-
+        {{-- @dd($errors->get('title')) --}}
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
 
 
 
-        <form class="w-full max-w-lg" method="POST" action={{isset($post)? route('post.update',$post->id):route('post.store') }}>
+
+
+        <form class="w-full max-w-lg" method="POST" action={{isset($post)? route('post.update',$post->id):route('post.store') }} enctype="multipart/form-data">
 
             @csrf
 
