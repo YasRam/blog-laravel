@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,10 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.app');
-});
+// Route::get('/', function () {
+//     return view('pages.app');
+// });
+Route::get('/', [Controller::class,'index'])->name('/');
 
 Route::get('/posts', [PostController::class, 'index'])->name('post.index');
 Route::get('/posts/show/{id}', [PostController::class, 'show'])->name('post.show');

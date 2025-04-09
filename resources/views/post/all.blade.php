@@ -40,7 +40,7 @@
                                 }}</a>
                         </td>
                         <td class="px-6 py-4">
-                            {{ $post->Category}}
+                            {{ isset($post->Category->title)?$post->Category->title:""}}
                         </td>
                         <td class="px-6 py-4">
                             {{ $post->content }}

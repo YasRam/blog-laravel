@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 
-class PostController extends Controller
-{
-    public function index()
+class PostController extends Controller{    
+
+public function index()
     {
         $posts = Post::paginate(10);
         return view('post.all', compact('posts'));
@@ -116,4 +116,6 @@ class PostController extends Controller
         return redirect()->route('post.index');
         // return view('post.all');
     }
+
+
 }

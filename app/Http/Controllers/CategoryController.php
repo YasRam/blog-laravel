@@ -35,18 +35,38 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         // dd($request);
+        // $request->validate(
+        //     [
+        //         'title' => 'required | string | min:2 | max:10',
+        //         'content' => 'required | string | min:2 | max:100',
+        //         'img' => 'nullable | image | mimes:jpg,jpeg,png',
+        //     ]
+        // );
+        // $imgName=$request->img;
+        // dd($imgName);
+
+
         $request->validate(
             [
                 'title' => 'required | string | min:2 | max:10',
                 'content' => 'required | string | min:2 | max:100',
-                'img' => '',
+                'img' => 'nullable | image | mimes:jpg,jpeg,png',
             ]
         );
+
+        $imgName = null;
+
+        if ($request->hasFile('img')) {
+            $img = $request->file('img');
+            $extention = $img->getClientOriginalExtension();
+            $imgName = uniqid() . "." . $extention;
+            $img->move(public_path('upload/category'), $imgName);
+        }
 
         Category::create([
             'title' => $request->title,
             'content' => $request->content,
-            'img' => $request->img,
+            'img' => $imgName,
         ]);
 
         // dd($request);

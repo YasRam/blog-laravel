@@ -6,7 +6,7 @@
             <div class="flex justify-between mb-6">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl font-semibold">2</div>
+                        <div class="text-2xl font-semibold">{{$users}}</div>
                     </div>
                     <div class="text-sm font-medium text-gray-400">Users</div>
                 </div>
@@ -31,18 +31,18 @@
                 </div>
             </div>
 
-            <a href="/gebruikers" class="text-[#f84525] font-medium text-sm hover:text-red-800">View</a>
+            {{-- <a href={{ route('users.index') }} class="text-[#f84525] font-medium text-sm hover:text-red-800">View</a> --}}
         </div>
         <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
             <div class="flex justify-between mb-4">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl font-semibold">100</div>
+                        <div class="text-2xl font-semibold">{{$categories}}</div>
                         <div
                             class="p-1 rounded bg-emerald-500/10 text-emerald-500 text-[12px] font-semibold leading-none ml-2">
                             +30%</div>
                     </div>
-                    <div class="text-sm font-medium text-gray-400">Companies</div>
+                    <div class="text-sm font-medium text-gray-400">Categories</div>
                 </div>
                 <div class="dropdown">
                     <button type="button" class="dropdown-toggle text-gray-400 hover:text-gray-600"><i
@@ -69,8 +69,8 @@
         <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
             <div class="flex justify-between mb-6">
                 <div>
-                    <div class="text-2xl font-semibold mb-1">100</div>
-                    <div class="text-sm font-medium text-gray-400">Blogs</div>
+                    <div class="text-2xl font-semibold mb-1">{{$posts}}</div>
+                    <div class="text-sm font-medium text-gray-400">Posts</div>
                 </div>
                 <div class="dropdown">
                     <button type="button" class="dropdown-toggle text-gray-400 hover:text-gray-600"><i
@@ -143,4 +143,6 @@
     </div>
     
 </div>
+
+{{-- @dd($posts) --}}
 @endsection
