@@ -11,6 +11,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
 
     <title>Admin Panel</title>
@@ -49,7 +50,7 @@
             <span class="text-gray-400 font-bold">ADMIN</span>
 
             <li class="mb-1 group">
-                <x-nav-link href="/users" :active="request()->is('users')">
+                <x-nav-link href="/user" :active="request()->is('user')">
                     <i class='bx bx-user mr-3 text-lg'></i>
                     <span class="text-sm">Users</span>
                     <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
@@ -70,7 +71,7 @@
 
             <span class="text-gray-400 font-bold">BLOG</span>
             <li class="mb-1 group">
-                <a href=""
+                <a href={{ route('post.index') }} :active="request()->is('posts')"
                     class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <i class='bx bxl-blogger mr-3 text-lg'></i>
                     <span class="text-sm">Post</span>
@@ -109,7 +110,7 @@
                 <i class="ri-menu-line"></i>
             </button> --}}
 
-            <ul class="ml-auto flex items-center">        
+            <ul class="ml-auto flex items-center">
                 <button id="fullscreen-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         class="hover:bg-gray-100 rounded-full" viewBox="0 0 24 24"
