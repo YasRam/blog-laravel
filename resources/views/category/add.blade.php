@@ -1,7 +1,7 @@
 <x-layout>
     @section(section: 'content')
     <div class="p-6 container">
-{{-- @dd($category); --}}
+
         <form class="w-full max-w-lg" method="post" action={{isset($category)? route('category.update',$category->id):route('category.store') }} enctype="multipart/form-data">
 
             @csrf
@@ -43,7 +43,6 @@
         </form>
 
     </div>
-    {{-- @dd(old()); --}}
 
     @endsection
 

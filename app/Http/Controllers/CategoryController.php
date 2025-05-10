@@ -8,44 +8,22 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    // public function index(){
-
-    //     $categories = Category::paginate(5);
-    //     return view('category.category-all',compact('categories'));
-    // }
-
-    public function index()
-    {
+    public function index(){
         $categories = Category::paginate(3);
         return view('category.all', compact('categories'));
     }
 
-    public function show($id)
-    {
+    public function show($id){
         $category = Category::findorfail($id);
         //  where("id",$id)->get();
         return view('category.show', compact('category'));
     }
 
-    public function add()
-    {
+    public function add(){
         return view('category.add');
     }
 
-    public function store(Request $request)
-    {
-        // dd($request);
-        // $request->validate(
-        //     [
-        //         'title' => 'required | string | min:2 | max:10',
-        //         'content' => 'required | string | min:2 | max:100',
-        //         'img' => 'nullable | image | mimes:jpg,jpeg,png',
-        //     ]
-        // );
-        // $imgName=$request->img;
-        // dd($imgName);
-
-
+    public function store(Request $request){
         $request->validate(
             [
                 'title' => 'required | string | min:2 | max:10',
@@ -69,20 +47,16 @@ class CategoryController extends Controller
             'img' => $imgName,
         ]);
 
-        // dd($request);
         return redirect()->route('category.index');
     }
 
-    public function edit($id)
-    {
+    public function edit($id){
         $category = Category::findOrFail($id);
         // $category = Category::all();
         return view("category.add", compact("category"));
     }
 
-    public function update($id, Request $request)
-    {
-        // dd($request);
+    public function update($id, Request $request){
         $request->validate(
             [
                 'title' => 'required | string | min:2 | max:10',
@@ -105,6 +79,5 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category -> delete();
         return redirect()->route('category.index');
-        // return view('category.all');
     }
 }

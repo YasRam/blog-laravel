@@ -1,5 +1,5 @@
 <x-layout>
-    {{-- {{dd($category)}} --}}
+
     @section('content')
 
         <div class="container p-3 ">
@@ -12,7 +12,7 @@
                 <div class="w-1/2 ">
                     <img src={{ asset(path: 'upload/category/' . $category->img) }} class="w-full" alt="">
 
-                </div> {{-- @dd($category) --}}
+                </div>
 
             </div>
             @if (count($category->posts) > 0)

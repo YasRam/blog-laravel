@@ -144,5 +144,4 @@
     
 </div>
 
-{{-- @dd($posts) --}}
 @endsection
